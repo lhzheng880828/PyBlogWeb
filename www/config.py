@@ -9,6 +9,7 @@ __author__ = 'Michael Liao'
 
 import config_default
 
+
 class Dict(dict):
     '''
     Simple dict but support access as x.y style.
@@ -26,6 +27,7 @@ class Dict(dict):
 
     def __setattr__(self, key, value):
         self[key] = value
+
 
 def merge(defaults, override):
     r = {}

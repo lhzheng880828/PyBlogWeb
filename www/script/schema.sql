@@ -1,12 +1,13 @@
 -- schema.sql
 
-drop database if exists awesome;
+drop database if exists blogs;
 
-create database awesome;
+create database blogs;
 
-use awesome;
+use blogs;
 
-grant select, insert, update, delete on awesome.* to 'www-data'@'localhost' identified by 'www-data';
+--创建一个calvin用户，密码为calvin
+grant select, insert, update, delete on blogs.* to 'calvin'@'localhost' identified by 'calvin';
 
 create table users (
     `id` varchar(50) not null,

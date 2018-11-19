@@ -125,6 +125,7 @@ def response_factory(app, handler):
         return resp
     return response
 
+
 def datetime_filter(t):
     delta = int(time.time() - t)
     if delta < 60:
@@ -138,6 +139,7 @@ def datetime_filter(t):
     dt = datetime.fromtimestamp(t)
     return u'%s年%s月%s日' % (dt.year, dt.month, dt.day)
 
+
 @asyncio.coroutine
 def init(loop):
     yield from orm.create_pool(loop=loop, **configs.db)
@@ -150,6 +152,7 @@ def init(loop):
     srv = yield from loop.create_server(app.make_handler(), '127.0.0.1', 9000)
     logging.info('server started at http://127.0.0.1:9000...')
     return srv
+
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(init(loop))
